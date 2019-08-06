@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       worldData: [],
       selectedCountry: null,
-      imageLink: null
+      favouriteCountries: []
     },
     mounted() {
       this.getWorldData();
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const request = fetch("https://restcountries.eu/rest/v2/all")
         .then(response => response.json())
         .then(data => this.worldData = data)
+      },
+      addToFavourites: function () {
+        this.favouriteCountries.push(this.selectedCountry);
       }
-      // displayCountry: function () {
-      //   this.imageLink = this.worldData[this.selectedCountry].flag;
-      // }
     }
   })
 })

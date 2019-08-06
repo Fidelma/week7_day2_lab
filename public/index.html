@@ -13,12 +13,12 @@
       </div>
 
       <div id="country-form">
-        <form id=drop-down-form v-on:submit.prevent="displayCountry">
+        <form id=drop-down-form v-on:submit.prevent="addToFavourites">
           <label for="country-form">Select a country</label>
           <select id="country-name" v-model="selectedCountry">
           <option v-for="(country, index) in worldData" v-bind:value="index" >{{country.name}}</option>
           </select>
-          <!-- <input type="submit"  value="get country info"/> -->
+          <input type="submit"  value="add to favourites"/>
         </form>
       </div>
 
@@ -26,6 +26,10 @@
         <h2> {{worldData[selectedCountry].name }} </h2>
         <img v-bind:src="worldData[selectedCountry].flag">
 
+      </div>
+
+      <div id="favourite-countries" v-if="favouriteCountries">
+        <h3 v-for="country in favouriteCountries">{{worldData[country].name}}</h3>
       </div>
 
     </div>
