@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>countries</title>
+    <script type="text/javascript" src="./js/bundle.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="world-population" >
+        <h2> World Population: {{ totalPopulation }}</h2>
+      </div>
+
+      <div id="country-form">
+        <form id=drop-down-form v-on:submit.prevent="displayCountry">
+          <label for="country-form">Select a country</label>
+          <select id="country-name" v-model="selectedCountry">
+          <option v-for="(country, index) in worldData" v-bind:value="index" >{{country.name}}</option>
+          </select>
+          <input type="submit"  value="get country info"/>
+        </form>
+      </div>
+
+      <div id="single-country-display">
+        <h2 v-if="selectedCountry">{{ worldData[selectedCountry].name }}</h2>
+        <img v-if="selectedCountry" :src="imageLink">
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
