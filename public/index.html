@@ -18,13 +18,13 @@
           <select id="country-name" v-model="selectedCountry">
           <option v-for="(country, index) in worldData" v-bind:value="index" >{{country.name}}</option>
           </select>
-          <input type="submit"  value="get country info"/>
+          <!-- <input type="submit"  value="get country info"/> -->
         </form>
       </div>
 
-      <div id="single-country-display">
-        <h2 v-if="selectedCountry">{{ worldData[selectedCountry].name }}</h2>
-        <img v-if="selectedCountry" :src="imageLink">
+      <div id="single-country-display" v-if="selectedCountry">
+        <h2> {{worldData[selectedCountry].name }} </h2>
+        <img v-bind:src="worldData[selectedCountry].flag">
 
       </div>
 

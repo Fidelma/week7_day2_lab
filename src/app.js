@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const request = fetch("https://restcountries.eu/rest/v2/all")
         .then(response => response.json())
         .then(data => this.worldData = data)
-      },
-      displayCountry: function () {
-        this.imageLink = this.worldData[this.selectedCountry].flag;
       }
+      // displayCountry: function () {
+      //   this.imageLink = this.worldData[this.selectedCountry].flag;
+      // }
     }
   })
 })
