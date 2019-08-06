@@ -24,7 +24,7 @@
 
       <div id="single-country-display" v-if="selectedCountry">
         <h2> {{worldData[selectedCountry].name }} </h2>
-        <img v-bind:src="worldData[selectedCountry].flag">
+        <img id="flag" v-bind:src="worldData[selectedCountry].flag">
 
       </div>
 
